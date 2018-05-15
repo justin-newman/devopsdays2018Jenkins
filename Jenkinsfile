@@ -28,5 +28,22 @@ pipeline {
                 input 'Deploy to Stage?'
             }
         }
+
+        stage('Parallel') { agent any
+            failFast true
+            parallel {
+                stage('Build 1') {
+                    steps{
+                        echo "Build 1"
+                    }
+                }
+                
+                stage('Build 2') {
+                    steps{
+                        echo "Build 2"
+                    }
+                }
+            }
+        }
     }
 }
