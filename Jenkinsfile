@@ -7,5 +7,10 @@ pipeline {
             }
 
         }
+        stage('Who Am I?') { agent any
+            steps {
+                sh 'host -t TXT pgp.michaelholley.us |awk -F \'"\' \'{print $2}\''
+            }
+        }
     }
 }
