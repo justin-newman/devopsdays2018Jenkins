@@ -1,3 +1,5 @@
+@Library('shared-library')
+
 pipeline {
     agent none
     environment {
@@ -42,6 +44,7 @@ pipeline {
                 stage('Build 1') { agent any
                     steps{
                         echo "Build 1"
+                        hello()
                     }
                 }
 
